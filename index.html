@@ -3,25 +3,26 @@
   =====================================================================
   DevGeek.IT — личный технический бренд (один файл, без библиотек)
   =====================================================================
-  ВАЖНО: положите рядом с index.html ТРИ файла изображений:
-
-      Logotip.png         — логотип DEV GEEK.IT
+  Сайт скрыт от поисковых систем (noindex, nofollow).
+  Рядом положите файлы:
+      Logotip.jpg         — логотип DEV GEEK.IT
       devgeek-photo.jpg   — ваше фото (портрет)
       devgeek-studio.jpg  — фото в студии (у микрофона)
-
-  Все три файла должны лежать В ТОЙ ЖЕ ПАПКЕ, что и index.html.
-  Регистр букв не важен: сайт сам попробует Logotip.png, Logotip.png,
-  Logotip.jpeg, Logotip.png, logo.jpg и т.д. (см. блок IMAGES в скрипте).
-  Если файл не найден — появится подсказка внизу слева, а на месте
-  картинки будет аккуратная заглушка с именем нужного файла.
+      robots.txt          — файл для запрета индексации
   =====================================================================
 -->
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Скрываем от поисковиков -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="yandex" content="noindex, nofollow">
+
 <title>DevGeek.IT — Code, Infrastructure &amp; Curiosity</title>
-<meta name="description" content="DevGeek.IT — личный технический бренд разработчика и инженера: разработка, архитектура, Linux, DevOps, Kubernetes, cloud и автоматизация. Разбираюсь в технологиях. Создаю решения. Делюсь знаниями.">
+<meta name="description" content="DevGeek.IT — личный технический бренд разработчика и инженера: разработка, архитектура, Linux, DevOps, Kubernetes, cloud и автоматизация.">
 <meta name="author" content="DevGeek.IT">
 <meta name="theme-color" content="#0b0d12">
 <meta name="keywords" content="DevGeek.IT, разработка, backend, DevOps, Kubernetes, Linux, Cloud, инфраструктура, автоматизация, технические статьи, MAX">
@@ -30,19 +31,19 @@
 <meta property="og:site_name" content="DevGeek.IT">
 <meta property="og:title" content="DevGeek.IT — Code, Infrastructure &amp; Curiosity">
 <meta property="og:description" content="Разбираюсь в технологиях. Создаю решения. Делюсь знаниями. Личный технический бренд о разработке, архитектуре, DevOps и современных IT-технологиях.">
-<meta property="og:image" content="Logotip.png">
+<meta property="og:image" content="Logotip.jpg">
 <meta property="og:image:alt" content="Логотип DevGeek.IT">
-<meta property="og:url" content="https://devgeekit.github.io/devgeekit.ru/">
+<meta property="og:url" content="https://devgeekit.github.io/DevGeekIT/">
 <meta property="og:locale" content="ru_RU">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="DevGeek.IT — Code, Infrastructure &amp; Curiosity">
 <meta name="twitter:description" content="Разбираюсь в технологиях. Создаю решения. Делюсь знаниями.">
-<meta name="twitter:image" content="Logotip.png">
+<meta name="twitter:image" content="Logotip.jpg">
 
-<link rel="canonical" href="https://devgeekit.github.io/devgeekit.ru/">
-<link rel="icon" href="Logotip.png">
-<link rel="apple-touch-icon" href="Logotip.png">
+<link rel="canonical" href="https://devgeekit.github.io/DevGeekIT/">
+<link rel="icon" href="Logotip.jpg">
+<link rel="apple-touch-icon" href="Logotip.jpg">
 
 <style>
   :root{
@@ -86,7 +87,6 @@
   }
   .skip-link:focus{left:0}
 
-  /* ---------- background fx ---------- */
   .bg-grid{
     position:fixed;inset:0;z-index:0;pointer-events:none;
     background-image:
@@ -106,7 +106,6 @@
     background:radial-gradient(closest-side,rgba(251,146,60,.10),rgba(163,230,53,.05) 55%,transparent 78%);
   }
 
-  /* ---------- nav ---------- */
   .nav{
     position:sticky;top:0;z-index:90;background:rgba(11,13,18,.8);
     -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
@@ -114,9 +113,6 @@
   }
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:9px 24px;display:flex;align-items:center;gap:14px}
   .brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
-
-  /* Логотип .jpg с белым фоном — показываем его в светлой плашке,
-     а белый фон гасим через mix-blend-mode:multiply (поддержка: все браузеры) */
   .logo-chip{
     background:#fff;border-radius:10px;padding:4px;line-height:0;display:block;
     width:42px;height:42px;flex:0 0 auto;overflow:hidden;
@@ -148,7 +144,6 @@
   }
   .burger svg{width:20px;height:20px}
 
-  /* ---------- hero ---------- */
   .hero{position:relative;z-index:1;padding:64px 0 84px}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
   .eyebrow{
@@ -185,7 +180,6 @@
   .max-link b{color:var(--cyan);font-weight:600}
   .max-link:hover b{text-decoration:underline}
 
-  /* logo panel */
   .logo-card{
     position:relative;background:#fff;border-radius:24px;padding:16px;
     box-shadow:0 0 0 1px rgba(255,255,255,.1),0 40px 90px -55px rgba(34,224,255,.6),0 30px 80px -65px rgba(251,146,60,.35);
@@ -221,7 +215,6 @@
   .caret{display:inline-block;width:8px;height:15px;vertical-align:-3px;background:var(--lime);animation:caret 1.1s step-end infinite}
   @keyframes caret{0%,49%{opacity:1}50%,100%{opacity:0}}
 
-  /* ---------- formula ---------- */
   .formula-strip{
     position:relative;z-index:1;margin-top:60px;padding:28px 20px;overflow:hidden;
     border:1px solid var(--border);border-radius:22px;
@@ -248,7 +241,6 @@
   .term.result .t-key{color:#06131a;font-weight:800}
   .term.result .t-val{color:rgba(6,19,26,.72)}
 
-  /* ---------- sections ---------- */
   section.block{position:relative;z-index:1;padding:88px 0;border-top:1px solid var(--border)}
   section.tinted{background:var(--bg-alt)}
   .head{max-width:740px;margin:0 auto 50px;text-align:center}
@@ -258,7 +250,6 @@
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
   .reveal.visible{opacity:1;transform:none}
 
-  /* cards */
   .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .id-card{
     position:relative;overflow:hidden;padding:28px 24px 24px;border:1px solid var(--border);
@@ -281,7 +272,6 @@
   .id-card .circuit-deco{position:absolute;right:-8px;bottom:-8px;width:145px;opacity:.16;pointer-events:none}
   .identity-note{margin-top:24px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:.82rem}
 
-  /* story */
   .story-formula{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;font-family:var(--mono);margin-bottom:48px}
   .story-formula .f{font-weight:800;font-size:clamp(1.15rem,2.7vw,1.75rem);padding:13px 20px;border:1px solid var(--border);border-radius:13px;background:var(--panel)}
   .story-formula .f.f-dev{color:var(--cyan)}
@@ -305,7 +295,6 @@
   .story-text strong{color:var(--text)}
   .story-quote{margin:22px 0 0;padding:16px 18px;border-left:2px solid var(--lime);background:rgba(163,230,53,.05);border-radius:0 12px 12px 0;font-family:var(--mono);font-size:.9rem;color:var(--lime)}
 
-  /* topics */
   .topics-cloud{display:flex;flex-wrap:wrap;gap:11px;justify-content:center}
   .tag{
     font-family:var(--mono);font-size:.87rem;padding:10px 18px;border-radius:999px;
@@ -316,7 +305,6 @@
   .tag.core{border-color:rgba(34,224,255,.3);color:var(--cyan)}
   .topics-legend{margin-top:24px;text-align:center;color:var(--muted);font-family:var(--mono);font-size:.78rem}
 
-  /* approach */
   .approach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
   .p-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:26px 22px;transition:transform .3s,border-color .3s}
   .p-card:hover{transform:translateY(-5px);border-color:var(--border-strong)}
@@ -325,7 +313,6 @@
   .p-card h3{margin:0 0 9px;font-size:1.04rem}
   .p-card p{margin:0;color:var(--muted);font-size:.9rem}
 
-  /* media (photos) */
   .media{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--border);background:var(--panel)}
   .media::before{content:'';position:absolute;inset:0 0 auto 0;height:3px;background:var(--grad);z-index:3}
   .media img{width:100%;height:100%;object-fit:cover;display:block}
@@ -355,7 +342,6 @@
   .steps h3{margin:0 0 4px;font-size:1.02rem}
   .steps p{margin:0;color:var(--muted);font-size:.91rem}
 
-  /* about */
   .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}
   .about-body p.lead{font-size:1.06rem;color:var(--text-soft);margin:0 0 18px}
   .about-body p{color:var(--muted);margin:0 0 16px}
@@ -372,7 +358,6 @@
   }
   a.ph-chip:hover{color:var(--cyan);border-color:rgba(34,224,255,.5)}
 
-  /* links */
   .links-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .link-card{
     display:flex;flex-direction:column;gap:11px;padding:26px;text-decoration:none;
@@ -388,7 +373,6 @@
   .link-card p{margin:0;color:var(--muted);font-size:.91rem}
   .link-card .url{margin-top:auto;font-family:var(--mono);font-size:.8rem;color:var(--lime);word-break:break-all}
 
-  /* footer */
   footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:52px 0 30px}
   .f-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:34px;margin-bottom:30px}
   .f-brand{max-width:340px}
@@ -400,7 +384,6 @@
   .f-col a:hover{color:var(--cyan)}
   .f-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
 
-  /* lightbox */
   .lightbox{
     position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;
     background:rgba(5,7,10,.92);padding:24px;
@@ -415,7 +398,6 @@
   }
   .lightbox .lb-cap{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:var(--muted);font-family:var(--mono);font-size:.8rem}
 
-  /* per-file hint toast */
   .file-hint{
     position:fixed;left:18px;bottom:18px;z-index:210;max-width:340px;
     display:none;gap:12px;padding:14px 16px;border-radius:14px;
@@ -431,7 +413,6 @@
     font-size:16px;cursor:pointer;line-height:1;padding:4px;
   }
 
-  /* ---------- responsive ---------- */
   @media (max-width:1020px){
     .hero-grid{grid-template-columns:1fr;gap:40px;text-align:center}
     .hero-visual{max-width:520px;margin:0 auto;width:100%;order:-1}
@@ -486,11 +467,10 @@
 <div class="bg-glow" aria-hidden="true"></div>
 <div class="bg-glow two" aria-hidden="true"></div>
 
-<!-- ================= NAV ================= -->
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="#top" aria-label="DevGeek.IT — в начало">
-      <span class="logo-chip"><img data-img="logo" src="Logotip.png" alt="Логотип DevGeek.IT"></span>
+      <span class="logo-chip"><img data-img="logo" src="Logotip.jpg" alt="Логотип DevGeek.IT"></span>
       <span class="brand-name">DevGeek.IT</span>
     </a>
 
@@ -512,7 +492,6 @@
 
 <main id="main">
 
-  <!-- ================= HERO ================= -->
   <section class="hero" id="top">
     <div class="container">
       <div class="hero-grid">
@@ -539,7 +518,7 @@
 
         <div class="hero-visual">
           <div class="logo-card" id="logoCard">
-            <img data-img="logo" src="Logotip.png" alt="Логотип DEV GEEK.IT — градиентные буквы с circuit-board линиями" width="1024" height="1024">
+            <img data-img="logo" src="Logotip.jpg" alt="Логотип DEV GEEK.IT — градиентные буквы с circuit-board линиями" width="1024" height="1024">
             <div class="logo-fallback mono" aria-hidden="true">DEV<br>GEEK.IT</div>
           </div>
 
@@ -588,7 +567,6 @@
     </div>
   </section>
 
-  <!-- ================= IDENTITY ================= -->
   <section class="block" id="identity">
     <div class="container">
       <div class="head reveal">
@@ -630,7 +608,6 @@
     </div>
   </section>
 
-  <!-- ================= WHY ================= -->
   <section class="block tinted" id="why">
     <div class="container">
       <div class="head reveal">
@@ -661,7 +638,6 @@
     </div>
   </section>
 
-  <!-- ================= TOPICS ================= -->
   <section class="block" id="topics">
     <div class="container">
       <div class="head reveal">
@@ -683,7 +659,6 @@
     </div>
   </section>
 
-  <!-- ================= APPROACH ================= -->
   <section class="block tinted" id="approach">
     <div class="container">
       <div class="head reveal">
@@ -721,7 +696,6 @@
     </div>
   </section>
 
-  <!-- ================= PROCESS + devgeek-studio.jpg ================= -->
   <section class="block" id="process">
     <div class="container">
       <div class="head reveal">
@@ -752,7 +726,6 @@
     </div>
   </section>
 
-  <!-- ================= ABOUT + devgeek-photo.jpg ================= -->
   <section class="block tinted" id="about">
     <div class="container">
       <div class="head reveal">
@@ -794,7 +767,6 @@
     </div>
   </section>
 
-  <!-- ================= LINKS ================= -->
   <section class="block" id="links">
     <div class="container">
       <div class="head reveal">
@@ -811,11 +783,11 @@
           <span class="url">max.ru/channel_DevGeekIT</span>
         </a>
 
-        <a class="link-card reveal" href="https://devgeekit.github.io/devgeekit.ru/" target="_blank" rel="noopener" aria-label="Основной сайт DevGeek.IT">
+        <a class="link-card reveal" href="https://devgeekit.github.io/DevGeekIT/" target="_blank" rel="noopener" aria-label="Основной сайт DevGeek.IT">
           <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20z"/></svg></span>
           <h3>Website</h3>
           <p>Основной сайт DevGeek.IT — точка входа в бренд.</p>
-          <span class="url">devgeekit.github.io/devgeekit.ru</span>
+          <span class="url">devgeekit.github.io/DevGeekIT</span>
         </a>
 
         <a class="link-card reveal" href="https://github.com/devgeekit" target="_blank" rel="noopener" aria-label="GitHub DevGeek.IT">
@@ -834,12 +806,12 @@
   <div class="container">
     <div class="f-top">
       <div class="f-brand">
-        <span class="logo-chip"><img data-img="logo" src="Logotip.png" alt="Логотип DevGeek.IT" loading="lazy"></span>
+        <span class="logo-chip"><img data-img="logo" src="Logotip.jpg" alt="Логотип DevGeek.IT" loading="lazy"></span>
         <p class="f-slogan">Code. Learn. Build. Share.</p>
       </div>
       <div class="f-cols">
         <div class="f-col"><h4>MAX</h4><a href="https://max.ru/channel_DevGeekIT" target="_blank" rel="noopener">max.ru/channel_DevGeekIT</a></div>
-        <div class="f-col"><h4>Website</h4><a href="https://devgeekit.github.io/devgeekit.ru/" target="_blank" rel="noopener">devgeekit.github.io/devgeekit.ru</a></div>
+        <div class="f-col"><h4>Website</h4><a href="https://devgeekit.github.io/DevGeekIT/" target="_blank" rel="noopener">devgeekit.github.io/DevGeekIT</a></div>
         <div class="f-col"><h4>GitHub</h4><a href="https://github.com/devgeekit" target="_blank" rel="noopener">github.com/devgeekit</a></div>
       </div>
     </div>
@@ -847,14 +819,12 @@
   </div>
 </footer>
 
-<!-- lightbox -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
   <button class="lb-close" id="lbClose" aria-label="Закрыть просмотр">×</button>
   <img id="lbImg" src="" alt="">
   <p class="lb-cap" id="lbCap"></p>
 </div>
 
-<!-- подсказка, если файлы изображений не найдены -->
 <div class="file-hint" id="fileHint" role="status" aria-live="polite">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
   <div>
@@ -865,17 +835,13 @@
 </div>
 
 <script>
-/* =====================================================================
-   IMAGES — авто-подбор имён файлов
-   Если ваши файлы названы чуть иначе, допишите вариант в нужный массив.
-   ===================================================================== */
 var IMAGES = {
-  logo:    ['Logotip.png','Logotip.png','Logotip.png','Logotip.jpeg','Logotip.png','logo.jpg','logo.jpeg','logo.png','Логотип.jpg','логотип.jpg'],
+  logo:    ['Logotip.jpg','logotip.jpg','Logotip.JPG','Logotip.jpeg','Logotip.png','logo.jpg','logo.jpeg','logo.png','Логотип.jpg','логотип.jpg'],
   photo:   ['devgeek-photo.jpg','DevGeek-photo.jpg','devgeek-photo.jpeg','devgeek-photo.png','devgeek_photo.jpg','devgeekphoto.jpg','фото.jpg'],
   studio:  ['devgeek-studio.jpg','DevGeek-studio.jpg','devgeek-studio.jpeg','devgeek-studio.png','devgeek_studio.jpg','devgeekstudio.jpg','студия.jpg']
 };
 
-var FALLBACK_NAMES = { logo:'Logotip.png', photo:'devgeek-photo.jpg', studio:'devgeek-studio.jpg' };
+var FALLBACK_NAMES = { logo:'Logotip.jpg', photo:'devgeek-photo.jpg', studio:'devgeek-studio.jpg' };
 var missing = {};
 
 var hint = document.getElementById('fileHint');
@@ -889,7 +855,6 @@ function showHint(){
   hint.classList.add('show');
 }
 
-/* Каждая картинка: пробуем по очереди варианты имени файла */
 document.querySelectorAll('img[data-img]').forEach(function (img) {
   var key = img.getAttribute('data-img');
   var list = IMAGES[key] || [];
@@ -914,7 +879,6 @@ document.querySelectorAll('img[data-img]').forEach(function (img) {
       img.src = list[idx];
       return;
     }
-    /* все варианты не найдены */
     missing[key] = true;
     var card = img.closest('.logo-card');
     if (card) card.classList.add('failed');
@@ -934,7 +898,6 @@ document.querySelectorAll('img[data-img]').forEach(function (img) {
     showHint();
   });
 
-  /* если файл уже в кэше, 'load' мог пройти до навешивания слушателя */
   if (img.complete && img.naturalWidth > 0) {
     img.setAttribute('data-ok', '1');
   }
@@ -945,9 +908,6 @@ if (hint) {
   if (hb) hb.addEventListener('click', function () { hint.classList.remove('show'); });
 }
 
-/* =====================================================================
-   MOBILE NAV
-   ===================================================================== */
 (function () {
   var burger = document.getElementById('burger');
   var nav = document.getElementById('navLinks');
@@ -975,9 +935,6 @@ if (hint) {
   });
 })();
 
-/* =====================================================================
-   SCROLL REVEAL (с поддержкой prefers-reduced-motion)
-   ===================================================================== */
 (function () {
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var items = document.querySelectorAll('.reveal');
@@ -993,9 +950,6 @@ if (hint) {
   items.forEach(function (el) { obs.observe(el); });
 })();
 
-/* =====================================================================
-   ACTIVE SECTION В МЕНЮ
-   ===================================================================== */
 (function () {
   var links = [].slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
   var sections = links.map(function (l) { return document.querySelector(l.getAttribute('href')); }).filter(Boolean);
@@ -1012,9 +966,6 @@ if (hint) {
   sections.forEach(function (s) { obs.observe(s); });
 })();
 
-/* =====================================================================
-   LIGHTBOX — увеличение фото по клику
-   ===================================================================== */
 (function () {
   var lb = document.getElementById('lightbox');
   var lbImg = document.getElementById('lbImg');
